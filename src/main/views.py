@@ -1,12 +1,14 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
+
 
 # Create your views here.
 
 
-def About(request):
+class About(TemplateView):
     template_name = "about.html"
-    context = {
-
-    }
-
-    return render(request, template_name, context)
+    
+    def get_context_data(self, **kwargs):
+        context = super(About, self).get_context_data(**kwargs)
+        context = {}
+        return context
