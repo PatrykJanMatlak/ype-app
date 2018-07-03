@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head_title %} {{block.super}} | search{% endblock head_title %}
+
+{% block content %}
+
+<form method="post">{% csrf_token %}
+    <br>
+    <h2>
+    <input type="text" name="search" placeholder="I am looking for:"> <input type="submit" value="Search!">
+    </br></h2>
+</form>
+
+{% endblock content %}

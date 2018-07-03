@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block head_title %} {{block.super}} | catalog{% endblock head_title %}
+
+{% block content %}
+ 
+{% for product in object_list %}
+
+{{product.name}}
+
+{% endfor %}
+
+{% endblock content %}

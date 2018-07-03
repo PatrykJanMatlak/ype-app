@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from main.views import About
 from django.views.generic import TemplateView
+from main.views import CatalogView
 
 
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="home.html")),
     url(r'^admin/', admin.site.urls),
-    url(r'^about/$', About.as_view()),
-
+    url(r'^about/$', TemplateView.as_view(template_name="about.html")),
+    url(r'^catalog/search/$',TemplateView.as_view(template_name="search.html")),
+    url(r'^catalog/$',CatalogView.as_view())
 ]
