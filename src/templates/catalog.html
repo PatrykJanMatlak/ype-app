@@ -5,9 +5,11 @@
 {% block content %}
  
 {% for product in object_list %}
+<h3>List of products:</h3>
 
-{{product.name}}
+<li><a href='/catalog/{{product.slug}}'>{{product}}</a> ({{product.category}})</li>
 
+</ul>
 {% endfor %}
 
 {% endblock content %}

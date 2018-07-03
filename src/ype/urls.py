@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
-from main.views import CatalogView
+from main.views import CatalogView, ProductDetailView
 
 
 urlpatterns = [
@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^about/$', TemplateView.as_view(template_name="about.html")),
     url(r'^catalog/search/$',TemplateView.as_view(template_name="search.html")),
-    url(r'^catalog/$',CatalogView.as_view())
+    url(r'^catalog/$',CatalogView.as_view()),
+    url(r'^catalog/(?P<slug>\w+)/$',ProductDetailView.as_view())
 ]
