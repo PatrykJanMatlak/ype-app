@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.views.generic import ListView, DetailView, CreateView, TemplateView, FormView
 from .models import ProductModel
+from .forms import SearchForm
+from django.db.models import Q
 
 # Create your views here.
 
@@ -18,3 +20,27 @@ class ProductDetailView(DetailView):
     #     slug = self.kwargs.get('slug')
     #     obj = get_object_or_404(ProductModel, slug = slug)
     #     return obj
+
+
+
+def productSearchView(request):
+
+    template_name = "search.html"
+    form = SearchForm(request.POST)
+    errors = None
+    search = None
+    
+    search = request.POST.get('search')
+    
+    if form.errors:
+        print (form.errors)
+        errors = form.errors
+    
+    if search != None:
+        queryset = ProductModel.objects.filter(Q(name__icontains = search) | Q(name__icontains = search))
+        context = {'queryset' : queryset}
+    
+    else:
+        context = {}
+
+    return render(request, template_name, context)

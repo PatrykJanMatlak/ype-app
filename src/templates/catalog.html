@@ -3,9 +3,9 @@
 {% block head_title %} {{block.super}} | catalog{% endblock head_title %}
 
 {% block content %}
- 
-{% for product in object_list %}
+
 <h3>List of products:</h3>
+{% for product in object_list %}
 
 <li><a href='/catalog/{{product.slug}}'>{{product}}</a> ({{product.category}})</li>
 
