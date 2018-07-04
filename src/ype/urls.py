@@ -25,5 +25,5 @@ urlpatterns = [
     url(r'^about/$', TemplateView.as_view(template_name="about.html")),
     url(r'^search/$',productSearchView),
     url(r'^catalog/$',CatalogView.as_view()),
-    url(r'^catalog/(?P<slug>\w+)/$',ProductDetailView.as_view()),
+    url(r'^catalog/(?P<slug>[\w-]+)/$',ProductDetailView.as_view()),
 ]

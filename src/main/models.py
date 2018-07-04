@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models.signals import pre_save
+from django.db.models.signals import post_save
 
 # Create your models here.
 
@@ -17,3 +17,12 @@ class ProductModel(models.Model):
 
     def __str__(self):
         return self.name
+
+def product_slug_receiver (sender, instance, *args , **kwargs):
+    correct_name = instance.name.replace(" ","-").lower()
+    product_id = str(instance.id)
+    if not instance.slug:
+        instance.slug = correct_name + product_id
+        instance.save()
+
+post_save.connect(product_slug_receiver, sender = ProductModel)

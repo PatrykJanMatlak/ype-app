@@ -14,8 +14,9 @@
 
 <h3>Results:</h3>
 {% for result in queryset %}
-
-{{result}}
+<ul>
+<li><a href='/catalog/{{result.slug}}'>{{result}}</a> ({{result.category}})</li>
+</ul>
 
 {% endfor %}
 
