@@ -7,7 +7,7 @@ YPE is a simple website where you can save evaluation about any product.
 You can also search for decent product, or browse catalog.
 
 ## Goals
-1.About's page (with TemplateView) [x]
+-1.About's page (with TemplateView) -[x]
 2.Product model (with models) [x]
 3.List's of all products (with ListView) [x]
 4.Detail's of a decent product (with DetailView) [x]
