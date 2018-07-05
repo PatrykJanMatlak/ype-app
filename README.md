@@ -2,11 +2,11 @@
 
 Your product evaluation app is written in django 1.11, with simple usage of bootstrap and html.
 
-##About
+## About
 YPE is a simple website where you can save evaluation about any product.
 You can also search for decent product, or browse catalog.
 
-##Goals
+## Goals
 1.About's page (with TemplateView) [x]
 2.Product model (with models) [x]
 3.List's of all products (with ListView) [x]
@@ -19,5 +19,5 @@ You can also search for decent product, or browse catalog.
 10. ...
 
 
-##Author
+## Author
 <a href='https://github.com/PatrykJanMatlak/'>Patryk Jan Matlak</a>
