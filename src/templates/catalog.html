@@ -7,7 +7,7 @@
 <h3>List of products:</h3>
 {% for product in object_list %}
 
-<li><a href='/catalog/{{product.slug}}'>{{product}}</a> ({{product.category}})</li>
+<li><a href='{{product.get_absolute_url}}'>{{product}}</a> ({{product.category}})</li>
 
 </ul>
 {% endfor %}

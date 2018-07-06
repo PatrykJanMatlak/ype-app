@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.signals import post_save
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 
@@ -18,10 +19,15 @@ class ProductModel(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse ("catalog:details", kwargs = {"slug":self.slug})
+
+
 def product_slug_receiver (sender, instance, *args , **kwargs):
+    DONT_USE = ['search','add','list']
     correct_name = instance.name.replace(" ","-").lower()
     product_id = str(instance.id)
-    if not instance.slug:
+    if not instance.slug and correct_name not in DONT_USE:
         instance.slug = correct_name + product_id
         instance.save()
 
