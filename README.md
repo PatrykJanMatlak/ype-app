@@ -13,10 +13,11 @@ You can also search for decent product, or browse catalog.
 4. Detail's of a decent product (with DetailView) [x]
 5. Unique slug for every single product (with post_save signal) [x]
 6. Simple search by name (with own function-based view) [x]
-7. Ability to add decent product (with CreateView) []
+7. Ability to add decent product (with CreateView) [x]
 8. Login into your account (with LoginView) []
 9. Browse your evaluation's (with ListView) []
 10. ...
+11. Online version (with Heroku) []
 
 
 ## Author
