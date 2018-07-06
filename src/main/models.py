@@ -24,10 +24,11 @@ class ProductModel(models.Model):
 
 
 def product_slug_receiver (sender, instance, *args , **kwargs):
-    DONT_USE = ['search','add','list']
+    #slug is a combination of name and pk. So we dont to specify DONT_USE names.
+    #DONT_USE = ['search','add','list']
     correct_name = instance.name.replace(" ","-").lower()
     product_id = str(instance.id)
-    if not instance.slug and correct_name not in DONT_USE:
+    if not instance.slug:
         instance.slug = correct_name + product_id
         instance.save()
 

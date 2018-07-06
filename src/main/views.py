@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, CreateView, TemplateView, FormView
 from .models import ProductModel
-from .forms import SearchForm
+from .forms import SearchForm, CreateEvaluationForm
 from django.db.models import Q
 
 # Create your views here.
@@ -27,7 +27,6 @@ def productSearchView(request):
 
     template_name = "search.html"
     form = SearchForm(request.POST)
-    errors = None
     search = None
     
     search = request.POST.get('search')
@@ -44,3 +43,8 @@ def productSearchView(request):
         context = {}
 
     return render(request, template_name, context)
+
+class CreateEvaluation(CreateView):
+    template_name = "create.html"
+    model = ProductModel
+    fields = ['name','price','category','mark','evaluation']
