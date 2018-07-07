@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="home.html"), name="home"),
     url(r'^admin/', admin.site.urls),
     url(r'^about/$', TemplateView.as_view(template_name="about.html"), name="about"),
-    url(r'^catalog/', include('main.urls', namespace = "catalog"))
+    url(r'^catalog/', include('main.urls', namespace = "catalog")),
+    url(r'^shops/', include('shops.urls', namespace = "shops"))
 ]

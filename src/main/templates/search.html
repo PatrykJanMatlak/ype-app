@@ -11,7 +11,6 @@
     </br></h2>
 </form>
 
-
 <h3>Results:</h3>
 {% for result in queryset %}
 <ul>
@@ -19,5 +18,13 @@
 </ul>
 
 {% endfor %}
+
+{% for result in queryset2 %}
+<ul>
+<li><a href='{{result.get_absolute_url}}'>{{result}}</a></li>
+</ul>
+
+{% endfor %}
+
 
 {% endblock content %}

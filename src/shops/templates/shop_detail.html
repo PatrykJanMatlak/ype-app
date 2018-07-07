@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block head_title %} {{block.super}} | {{object.name}}{% endblock head_title %}
+
+{% block content %}
+<br></br>
+<h3>{{object.name}}:</h3>
+    <p>{{object.city}}</p>
+    <p>{{object.street}}</p>
+{% endblock content %}

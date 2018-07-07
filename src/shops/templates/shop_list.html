@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block head_title %} {{block.super}} | catalog{% endblock head_title %}
+
+{% block content %}
+
+<h3>List of shops:</h3>
+{% for shop in object_list %}
+
+<li><a href='{{shop.get_absolute_url}}'>{{shop.name}}</a> ({{shop.city}}, {{shop.street}})</li>
+
+</ul>
+{% endfor %}
+
+{% endblock content %}

@@ -1,10 +1,14 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.core.urlresolvers import reverse
+from shops.models import ShopModel
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class ProductModel(models.Model):
+    user        = models.ForeignKey(User)
+    shop        = models.ForeignKey(ShopModel, null=True, blank=True)
     name        = models.CharField(max_length = 120, null = False, blank = False)
     price       = models.FloatField(null = True, blank = True)
     category    = models.CharField(max_length = 120,null = True, blank = True)

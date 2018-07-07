@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, CreateView, TemplateView,
 from .models import ProductModel
 from .forms import SearchForm, CreateEvaluationForm
 from django.db.models import Q
+from shops.models import ShopModel
 
 # Create your views here.
 
@@ -14,7 +15,7 @@ class ProductDetailView(DetailView):
     template_name = "details.html"
     queryset = ProductModel.objects.all()
     
-    # detailview takes slug wihout def. it.
+    # detailview takes slug wihout def. it. (autom.)
    
     #   def get_object(self, *args , **kwargs):
     #     slug = self.kwargs.get('slug')
@@ -34,11 +35,13 @@ def productSearchView(request):
     if form.errors:
         print (form.errors)
         errors = form.errors
+        context = {}
     
     if search != None:
         queryset = ProductModel.objects.filter(Q(name__icontains = search) | Q(name__icontains = search))
-        context = {'queryset' : queryset}
-    
+        queryset2 = ShopModel.objects.filter(Q(name__icontains = search) | Q(name__icontains = search))
+        context = {'queryset' : queryset, 'queryset2' : queryset2}
+
     else:
         context = {}
 
